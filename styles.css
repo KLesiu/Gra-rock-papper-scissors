@@ -20,6 +20,7 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   padding: 48px;
+  overflow: hidden;
 }
 header {
   border: solid 2px var(--color-border);
@@ -57,7 +58,16 @@ h1 span {
 main {
   max-width: 600px;
   margin: 0 auto;
+  min-height: 65vh;
   padding: 94px 0;
+  position: relative;
+}
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s, opacity 0.3s;
 }
 .options {
   aspect-ratio: 313/278;
@@ -65,7 +75,10 @@ main {
   background-size: cover;
   margin: 0 auto;
   width: 50%;
-  position: relative;
+}
+.options.slide-left {
+  transform: translate(-200%, -50%);
+  opacity: 0;
 }
 .options .button {
   position: absolute;
@@ -123,22 +136,40 @@ main {
 .fight {
   color: var(--color-main);
   display: flex;
+  opacity: 0;
+  transform: translate(200%, -50%);
+  width: 100%;
+  align-items: center;
+}
+.fight.slide-left {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 .pick {
   align-items: flex-start;
   width: 50%;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
   display: flex;
+  transform: translate(0, 0);
+  transition: transform 0.3s;
 }
-.fight .button {
-  width: 75%;
+.pick--player.moved {
+  transform: translate(-25%, 0);
+}
+.pick--ai.moved {
+  transform: translate(25%, 0);
 }
 .pick__title {
+  position: absolute;
   display: block;
   text-align: center;
   padding-bottom: 24px;
   width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 100%;
 }
 .pick__placeholder {
   aspect-ratio: 1/1;
@@ -148,4 +179,49 @@ main {
 }
 .hidden {
   display: none;
+}
+
+.pick__container {
+  width: 75%;
+}
+
+.resault {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+
+  transform: scaleX(0) translate(-50%, -50%);
+  transition: transform 0.3s;
+}
+.resault.shown {
+  transform: scaleX(1) translate(-50%, -50%);
+}
+.resault__text {
+  width: 100%;
+
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+}
+.resault__button {
+  padding: 8px 24px;
+  border: none;
+  color: red;
+  border-radius: 3px;
+}
+@media screen and (max-width: 480px) {
+  .score {
+    padding: 8px 12px;
+  }
+  .resault__text {
+    font-size: 24px;
+  }
+  .resault__button {
+    padding: 8px 14px;
+  }
 }

@@ -51,18 +51,24 @@
           </div>
         </button>
       </section>
-      <section class="fight hidden">
-        <div class="pick">
+      <section class="fight">
+        <div class="pick pick--player">
           <span class="pick__title">YOU PICKED</span>
-          <div class="button button--paper">
-            <div class="button__image-container">
-              <img src="images/icon-paper.svg" alt="Paper" />
+          <div class="pick__container pick__container--player">
+            <div class="button button--paper">
+              <div class="button__image-container">
+                <img src="images/icon-paper.svg" alt="Paper" />
+              </div>
             </div>
           </div>
         </div>
-        <div class="pick">
+        <div class="resault">
+          <span class="resault__text"></span>
+          <button class="resault__button" tabindex="-1">PLAY AGAIN</button>
+        </div>
+        <div class="pick pick--ai">
           <span class="pick__title">THE HOUSE PICKED</span>
-          <div class="pick__placeholder"></div>
+          <div class="pick__container pick__container--ai"></div>
         </div>
       </section>
     </main>
