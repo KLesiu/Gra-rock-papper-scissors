@@ -12,8 +12,8 @@ const winningResaultsMap = {
 };
 
 let state = {
-  playerWins: Number(localStorage.getItem(playerWinsLSKey)) || 0,
-  aiWins: Number(localStorage.getItem(aiWinsLSKey)) || 0,
+  playerWins: 0,
+  aiWins: 0,
   playerPick: null,
   aiPick: null,
 };
